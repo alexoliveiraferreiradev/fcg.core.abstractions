@@ -11,6 +11,15 @@
     <Company>FiapCloudGames</Company>
     <RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+      
+  <Description>Pacote principal contendo as abstrações (Interfaces, Enums, Exceptions e Contratos de Mensagens) compartilhadas entre os microsserviços do Fiap Cloud Games.</Description>
+
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.17" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.17" />
+  </ItemGroup>
 
 </Project>
