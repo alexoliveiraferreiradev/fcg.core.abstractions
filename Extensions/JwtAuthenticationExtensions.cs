@@ -9,15 +9,15 @@ namespace Fcg.Core.Abstractions.Extensions
 {
     public static class JwtAuthenticationExtensions
     {
-        public static IServiceCollection AddCustomJwtAuthentication(this IServiceCollection services, 
+        public static IServiceCollection AddCustomJwtAuthentication(this IServiceCollection services,
             IConfiguration configuration)
         {
-            
+
             var jwtSettingsSection = configuration.GetSection("JwtSettings");
             services.Configure<JwtSettings>(jwtSettingsSection);
             var jwtSettings = jwtSettingsSection.Get<JwtSettings>();
 
-            
+
             if (string.IsNullOrEmpty(jwtSettings?.Secret))
                 throw new ArgumentException("JwtSettings:Secret não foi configurado no appsettings.");
 
@@ -44,9 +44,10 @@ namespace Fcg.Core.Abstractions.Extensions
                     ValidAudience = jwtSettings.ValidoEm,
 
                     ValidateLifetime = true,
-                    ClockSkew = TimeSpan.Zero 
+                    ClockSkew = TimeSpan.Zero
                 };
             });
             return services;
+        }
     }
 }
