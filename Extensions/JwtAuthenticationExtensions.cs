@@ -1,4 +1,4 @@
-﻿using Fcg.Core.Abstractions.Security;
+using Fcg.Core.Abstractions.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,17 +38,15 @@ namespace Fcg.Core.Abstractions.Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(key),
 
                     ValidateIssuer = true,
-                    ValidIssuer = jwtSettings.ValidoEm,
+                    ValidIssuer = jwtSettings.Emissor,
 
                     ValidateAudience = true,
-                    ValidAudience = jwtSettings.Emissor,
+                    ValidAudience = jwtSettings.ValidoEm,
 
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero 
                 };
             });
             return services;
-        }
     }
-}
 }
