@@ -1,0 +1,15 @@
+﻿using Fcg.Core.Abstractions.Enum;
+using Fcg.Core.Abstractions.Interfaces;
+
+namespace Fcg.Core.Abstractions.MessageContracts
+{
+    public record PaymentProcessedEvent(
+    Guid OrderId,
+    Guid UserId,
+    Guid GameId,
+    PaymentStatus Status) : IEvent
+    {
+        public Guid EventId { get; init; } = Guid.NewGuid();
+        public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
+    }
+}
