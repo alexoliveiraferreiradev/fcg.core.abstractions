@@ -2,9 +2,6 @@ using Fcg.Core.Abstractions.Common.Exceptions;
 
 namespace Fcg.Core.Abstractions.Common
 {
-    /// <summary>
-    /// Fornece métodos utilitários para validação de argumentos e lançamento de exceções de domínio.
-    /// </summary>
     public class AssertionConcern
     {
         /// <summary>
@@ -204,5 +201,24 @@ namespace Fcg.Core.Abstractions.Common
             }
         }
 
+        public static void AssertArgumentRealValues(string value, string message)
+        {
+            if (value.Trim().Equals("Nome do Usuário", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new DomainException(message);
+            }
+            if (value.Trim().Equals("usuario@email.com.br", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new DomainException(message);
+            }
+            if (value.Trim().Equals("Nome do Jogo", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new DomainException(message);
+            }
+            if (value.Trim().Equals("Descrição do Jogo", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new DomainException(message);
+            }
+        }
     }
 }
