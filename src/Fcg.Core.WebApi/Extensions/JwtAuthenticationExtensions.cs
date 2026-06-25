@@ -1,11 +1,11 @@
-using Fcg.Core.Abstractions.Security;
+using Fcg.Core.WebApi.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Fcg.Core.Abstractions.Extensions
+namespace Fcg.Core.WebApi.Extensions
 {
     public static class JwtAuthenticationExtensions
     {

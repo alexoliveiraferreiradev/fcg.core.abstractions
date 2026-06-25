@@ -1,4 +1,4 @@
-namespace Fcg.Core.Abstractions.Responses
+namespace Fcg.Core.WebApi.Responses
 {
     public class ErrorResponse
     {

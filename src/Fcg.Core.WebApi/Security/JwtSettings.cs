@@ -1,4 +1,4 @@
-﻿namespace Fcg.Core.Abstractions.Security
+namespace Fcg.Core.WebApi.Security
 {
     public class JwtSettings
     {
