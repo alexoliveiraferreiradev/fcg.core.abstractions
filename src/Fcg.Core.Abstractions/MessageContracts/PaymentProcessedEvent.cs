@@ -6,7 +6,7 @@ namespace Fcg.Core.Abstractions.MessageContracts
     public record PaymentProcessedEvent(
     Guid OrderId,
     Guid UserId,
-    Guid GameId,
+    IEnumerable<Guid> JogosIds,
     PaymentStatus Status) : IEvent
     {
         public Guid EventId { get; init; } = Guid.NewGuid();
