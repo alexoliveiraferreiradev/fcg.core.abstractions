@@ -220,5 +220,13 @@ namespace Fcg.Core.Abstractions.Common
                 throw new DomainException(message);
             }
         }
+
+        public static void AssertArgumentNotEmpty(Guid id, string message)
+        {
+            if (id == Guid.Empty)
+            {
+                throw new DomainException(message);
+            }
+        }
     }
 }
