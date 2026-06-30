@@ -6,6 +6,8 @@ namespace Fcg.Core.Abstractions.MessageContracts
     public record PaymentProcessedEvent(
     Guid OrderId,
     Guid UserId,
+    string EmailUsuario,
+    string NomeUsuario,
     IEnumerable<Guid> JogosIds,
     PaymentStatus Status) : IEvent
     {
