@@ -5,6 +5,8 @@ namespace Fcg.Core.Abstractions.MessageContracts
     public record OrderPlacedEvent(
      Guid OrderId,
      Guid UserId,
+     string EmailUsuario,
+     string NomeUsuario,
      IEnumerable<Guid> JogosIds,
      decimal PrecoTotal) : IEvent
     {
