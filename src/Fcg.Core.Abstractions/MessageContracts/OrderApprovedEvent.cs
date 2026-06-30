@@ -5,6 +5,7 @@ namespace Fcg.Core.Abstractions.MessageContracts
     public record OrderApprovedEvent(
         Guid OrderId,
         Guid UserId,
+        string EmailUsuario,
         string NomeUsuario,
         DateTime DataCompra) : IEvent
     {
