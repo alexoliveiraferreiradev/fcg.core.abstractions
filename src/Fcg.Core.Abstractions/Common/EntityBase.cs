@@ -1,4 +1,4 @@
-﻿namespace Fcg.Core.Abstractions.Common
+namespace Fcg.Core.Abstractions.Common
 {
     public abstract class EntityBase
     {
@@ -8,6 +8,6 @@
             Id = Guid.NewGuid();
         }
 
-        protected abstract void ValidarEntidade();
+        protected abstract void ValidateEntity();
     }
 }

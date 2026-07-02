@@ -1,4 +1,4 @@
-using Fcg.Core.WebApi.Security;
+﻿using Fcg.Core.WebApi.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,10 +38,10 @@ namespace Fcg.Core.WebApi.Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(key),
 
                     ValidateIssuer = true,
-                    ValidIssuer = jwtSettings.Emissor,
+                    ValidIssuer = jwtSettings.Issuer,
 
                     ValidateAudience = true,
-                    ValidAudience = jwtSettings.ValidoEm,
+                    ValidAudience = jwtSettings.Audience,
 
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
