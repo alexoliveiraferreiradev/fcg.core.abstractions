@@ -203,6 +203,7 @@ namespace Fcg.Core.Abstractions.Common
 
         public static void AssertArgumentRealValues(string value, string message)
         {
+            if (value == null) return;
             if (value.Trim().Equals("Nome do Usuário", StringComparison.OrdinalIgnoreCase))
             {
                 throw new DomainException(message);
