@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <PackageId>Fcg.Core.Abstractions</PackageId>
-    <Version>1.0.9</Version>
+    <Version>1.0.10</Version>
     <Authors>Alex Oliveira Ferreira</Authors>
     <Company>FiapCloudGames</Company>
     <RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
