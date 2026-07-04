@@ -76,6 +76,10 @@
         public static string EmailNotReal = "Por favor, informe um email real.";
         public static string GameNameNotReal = "Por favor, informe um nome de jogo real.";
         public static string GameDescriptionNotReal = "Por favor, informe um descrição de jogo real.";
+        public static string PasswordMustContainUppercase = "A senha deve conter pelo menos uma letra maiúscula.";
+        public static string PasswordMustContainLowercase = "A senha deve conter pelo menos uma letra minúscula.";
+        public static string PasswordMustContainNumber = "A senha deve conter pelo menos um número.";
+        public static string PasswordMustContainSpecialCharacter = "A senha deve conter pelo menos um caractere especial.";
         #endregion
 
         #region Biblioteca
