@@ -2,8 +2,7 @@
 {
     public record PaymentFailedEvent(
      Guid OrderId,
-     string NomeUsuario,
-     string EmailUsuario,
+     Guid UserId,
      string Reason
  );
 }

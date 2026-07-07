@@ -6,10 +6,7 @@ namespace Fcg.Core.Abstractions.MessageContracts
     public record PaymentProcessedEvent(
     Guid OrderId,
     Guid UserId,
-    string EmailUsuario,
-    string NomeUsuario,
-    IEnumerable<Guid> JogosIds,
-    PaymentStatus Status) : IEvent
+    IEnumerable<Guid> GameIds) : IEvent
     {
         public Guid EventId { get; init; } = Guid.NewGuid();
         public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
