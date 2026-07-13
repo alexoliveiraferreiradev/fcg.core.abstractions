@@ -1,0 +1,40 @@
+name: Publish Core Package
+
+on:
+  push:
+    branches:
+      - main
+
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build and Pack Projeto 1
+        run: dotnet pack src/Fcg.Core.Abstractions/Fcg.Core.Abstractions.csproj -c Release -o ./out
+      - name: Build and Pack Projeto 2
+        run: dotnet pack src/Fcg.Core.SharedContracts/Fcg.Core.SharedContracts.csproj -c Release -o ./out
+      - name: Build and Pack Projeto 3
+        run: dotnet pack src/Fcg.Core.WebApi/Fcg.Core.WebApi.csproj -c Release -o ./out
+
+      - name: NuGet Login
+        uses: NuGet/login@v1
+        with:
+          user: alex.ferreira.dev
+
+      - name: Push to NuGet.org
+        run: dotnet nuget push ./out/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
+        env:
+          NUGET_AUTH_TOKEN: ${{ env.NUGET_AUTH_TOKEN }}

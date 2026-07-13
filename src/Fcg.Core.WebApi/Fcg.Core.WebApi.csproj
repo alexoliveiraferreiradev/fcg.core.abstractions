@@ -5,8 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
+    <IsPackable>true</IsPackable>
     <PackageId>Fcg.Core.WebApi</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.0</Version>
     <Authors>Alex Oliveira Ferreira</Authors>
     <Company>FiapCloudGames</Company>
     <RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
