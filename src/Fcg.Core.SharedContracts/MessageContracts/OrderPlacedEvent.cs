@@ -1,6 +1,6 @@
-using Fcg.Core.Abstractions.Interfaces;
+using Fcg.Core.SharedContracts.Interfaces;
 
-namespace Fcg.Core.Abstractions.MessageContracts
+namespace Fcg.Core.SharedContracts.MessageContracts
 {
     public record OrderPlacedEvent(
      Guid OrderId,

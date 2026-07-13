@@ -1,7 +1,6 @@
-﻿using Fcg.Core.Abstractions.Enum;
-using Fcg.Core.Abstractions.Interfaces;
+﻿using Fcg.Core.SharedContracts.Interfaces;
 
-namespace Fcg.Core.Abstractions.MessageContracts
+namespace Fcg.Core.SharedContracts.MessageContracts
 {
     public record PaymentProcessedEvent(
     Guid OrderId,

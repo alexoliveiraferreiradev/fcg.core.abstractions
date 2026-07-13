@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+	<PackageId>Fcg.Core.SharedContracts</PackageId>
+	<Version>1.0.1</Version>
+	<Authors>Alex Oliveira Ferreira</Authors>
+	<Company>FiapCloudGames</Company>
+	<RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+
+	<Description>Pacote principal contendo os contratos de mensagens compartilhadas entre os microsserviços do Fiap Cloud Games.</Description>
+
+
+  </PropertyGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-﻿namespace Fcg.Core.Abstractions.Interfaces
+﻿namespace Fcg.Core.SharedContracts.Interfaces
 {
     public interface IEvent
     {
