@@ -7,15 +7,15 @@
 
   <IsPackable>true</IsPackable>
 	<PackageId>Fcg.Core.SharedContracts</PackageId>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
 	<Authors>Alex Oliveira Ferreira</Authors>
 	<Company>FiapCloudGames</Company>
 	<RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-
+  <PackageReadmeFile>README.md</PackageReadmeFile>  
 	<Description>Pacote principal contendo os contratos de mensagens compartilhadas entre os microsserviços do Fiap Cloud Games.</Description>
-
-
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>

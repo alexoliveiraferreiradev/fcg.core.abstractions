@@ -7,14 +7,16 @@
 
     <IsPackable>true</IsPackable>
     <PackageId>Fcg.Core.Abstractions</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Alex Oliveira Ferreira</Authors>
     <Company>FiapCloudGames</Company>
     <RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
     <RepositoryType>git</RepositoryType>      
     <Description>Pacote principal contendo as abstrações (Interfaces, Enums, Exceptions e Contratos de Mensagens) compartilhadas entre os microsserviços do Fiap Cloud Games.</Description>
-
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
 </Project>
