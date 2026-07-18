@@ -5,7 +5,7 @@ namespace Fcg.Core.SharedContracts.MessageContracts
     public interface IGameCreatedIntegrationEvent : IEvent
     {
         Guid UserId { get; }
-        Guid GameId { get; }
+        IEnumerable<Guid> GamesIds { get; }
         string Name { get; }
         decimal Price { get; }
         string Description { get; }
