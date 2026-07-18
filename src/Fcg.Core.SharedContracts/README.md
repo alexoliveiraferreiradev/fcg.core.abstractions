@@ -34,7 +34,7 @@ Referencie nos seus projetos de `Worker` ou `API` para publicar e consumir event
 ```csharp
 using Fcg.Core.SharedContracts.MessageContracts;
 
-public class OrderEvent : IEvent
+public class OrderEvent : IOrderPlacedEvent
 {
     public Guid PedidoId { get; set; }
     public decimal ValorTotal { get; set; }
