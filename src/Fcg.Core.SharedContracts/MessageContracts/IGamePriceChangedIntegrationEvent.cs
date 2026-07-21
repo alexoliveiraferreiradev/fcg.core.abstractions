@@ -6,5 +6,6 @@ namespace Fcg.Core.SharedContracts.MessageContracts
     {
         Guid GameId { get; }
         decimal NewPrice { get; }
+        DateTime OccurredAt { get; }
     }
 }
