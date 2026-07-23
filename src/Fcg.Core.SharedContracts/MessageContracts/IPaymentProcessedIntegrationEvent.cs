@@ -1,12 +1,11 @@
-using Fcg.Core.SharedContracts.Interfaces;
+﻿using Fcg.Core.SharedContracts.Interfaces;
 
 namespace Fcg.Core.SharedContracts.MessageContracts
 {
-    public interface IOrderPlacedEvent : IEvent
+    public interface IPaymentProcessedIntegrationEvent : IEvent
     {
         Guid OrderId { get; }
         Guid UserId { get; }
         IEnumerable<Guid> GameIds { get; }
-        decimal AmountPrice { get; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Fcg.Core.SharedContracts.MessageContracts
 {
-    public interface IPaymentFailedEvent : IEvent
+    public interface IPaymentFailedIntegrationEvent : IEvent
     {
         Guid OrderId { get; }
         Guid UserId { get; }

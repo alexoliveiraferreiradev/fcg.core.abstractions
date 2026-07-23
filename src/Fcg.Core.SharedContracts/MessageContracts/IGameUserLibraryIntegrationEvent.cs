@@ -2,7 +2,7 @@
 
 namespace Fcg.Core.SharedContracts.MessageContracts
 {
-    public interface IGameUserLibraryEvent : IEvent
+    public interface IGameUserLibraryIntegrationEvent : IEvent
     {
         Guid UserId { get; }    
         Guid GameId { get; }
