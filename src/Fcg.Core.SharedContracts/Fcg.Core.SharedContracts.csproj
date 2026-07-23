@@ -7,7 +7,7 @@
 
   <IsPackable>true</IsPackable>
 	<PackageId>Fcg.Core.SharedContracts</PackageId>
-	<Version>1.0.9</Version>
+	<Version>1.1.0</Version>
 	<Authors>Alex Oliveira Ferreira</Authors>
 	<Company>FiapCloudGames</Company>
 	<RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
