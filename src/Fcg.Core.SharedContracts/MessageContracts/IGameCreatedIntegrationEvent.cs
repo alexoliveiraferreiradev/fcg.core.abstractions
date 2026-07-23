@@ -9,6 +9,7 @@ namespace Fcg.Core.SharedContracts.MessageContracts
         decimal Price { get; }
         bool IsAvaiable { get; }
         string Description { get; }
+        string Genre { get; }   
         DateTime OccurredAt { get; }    
     }
 }
