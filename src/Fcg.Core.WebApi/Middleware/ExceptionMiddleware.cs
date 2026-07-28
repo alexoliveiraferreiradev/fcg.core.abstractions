@@ -1,7 +1,8 @@
 ﻿using Fcg.Core.Abstractions.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Net;
+using System.Diagnostics;
 
 namespace Fcg.Core.WebApi.Middleware
 {
@@ -29,24 +30,60 @@ namespace Fcg.Core.WebApi.Middleware
 
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
+            var traceId = Activity.Current?.Id ?? context.TraceIdentifier;
             context.Response.ContentType = "application/json";
 
-            var statusCode = (int)HttpStatusCode.InternalServerError;
-            var message = "Ocorreu um erro interno no servidor. Tente novamente mais tarde.";
-            if (exception is DomainException)
+            ProblemDetails problemDetails = exception switch
             {
-                _logger.LogInformation("Regra de Negócio: {Mensagem}", exception.Message);
-                statusCode = (int)HttpStatusCode.BadRequest;
-                message = exception.Message;
+                
+                DomainException domainEx=> new ProblemDetails
+                {
+                    Title = "Regra de negócio violada.",
+                    Detail = domainEx.Message,
+                    Status = StatusCodes.Status400BadRequest,
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+                    Instance = context.Request.Path,
+                    Extensions = new Dictionary<string, object?>
+                    {
+                        { "traceId", traceId }
+                    }
+                },
+
+                KeyNotFoundException => new ProblemDetails
+                {
+                    Title = "Recurso não encontrado.",
+                    Status = StatusCodes.Status404NotFound,
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+                    Instance = context.Request.Path,
+                    Extensions = new Dictionary<string, object?>
+                    {
+                        { "traceId", traceId }
+                    }
+                },
+
+                _=> new ProblemDetails
+                {
+                    Title = "Ocorreu um erro interno no servidor.",
+                    Status = StatusCodes.Status500InternalServerError,
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.6.1",
+                    Instance = context.Request.Path,
+                    Extensions = new Dictionary<string, object?>
+                    {
+                        { "traceId",traceId }
+                    }
+                }
+            };
+
+            if(problemDetails.Status == StatusCodes.Status500InternalServerError)
+            {
+                _logger.LogError(exception, $"Ocorreu um erro. Informe o código {traceId} ao suporte");
             }
             else
             {
-                _logger.LogError(exception, "Erro Crítico: {Mensagem}", exception.Message);
+                _logger.LogWarning("Erro de negócio/validação: {Message}", exception.Message);
             }
-
-
-            context.Response.StatusCode = statusCode;
-            await context.Response.WriteAsJsonAsync(new { erro = message });
+            context.Response.StatusCode = problemDetails.Status!.Value;
+            await context.Response.WriteAsJsonAsync(problemDetails);
         }
     }
 }
