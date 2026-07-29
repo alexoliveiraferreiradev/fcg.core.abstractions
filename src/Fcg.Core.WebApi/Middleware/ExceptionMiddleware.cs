@@ -1,4 +1,5 @@
 ﻿using Fcg.Core.Abstractions.Common.Exceptions;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -35,8 +36,25 @@ namespace Fcg.Core.WebApi.Middleware
 
             ProblemDetails problemDetails = exception switch
             {
-                
-                DomainException domainEx=> new ProblemDetails
+                ValidationException validationEx => new ValidationProblemDetails(
+                    validationEx.Errors
+                    .GroupBy(e=>e.PropertyName)
+                    .ToDictionary(
+                        g=>g.Key,
+                        g=>g.Select(e=>e.ErrorMessage).ToArray()))
+                {
+                    Title = "Um ou mais erros de validação ocorreram.",
+                    Status = StatusCodes.Status400BadRequest,
+                    Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+                    Instance = context.Request.Path,
+                    Extensions = new Dictionary<string, object?>
+                    {
+                        { "traceId", traceId }
+                    }
+                },
+
+
+                DomainException domainEx => new ProblemDetails
                 {
                     Title = "Regra de negócio violada.",
                     Detail = domainEx.Message,
@@ -61,7 +79,7 @@ namespace Fcg.Core.WebApi.Middleware
                     }
                 },
 
-                _=> new ProblemDetails
+                _ => new ProblemDetails
                 {
                     Title = "Ocorreu um erro interno no servidor.",
                     Status = StatusCodes.Status500InternalServerError,
