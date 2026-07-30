@@ -65,6 +65,7 @@
         #endregion
 
         #region Value Objects
+        public static string NotificationTypeRequired = "O tipo de email é obrigatório";
         public static string InvalidValue = "O valor deve ser positivo.";
         public static string PriceRequired = "O preço é obrigatório.";
         public static string EmailRequired = "O email do usuário é obrigatório.";
