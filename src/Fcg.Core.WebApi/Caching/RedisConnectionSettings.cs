@@ -12,6 +12,9 @@ namespace Fcg.Core.WebApi.Caching
         public string Password { get; set; } = string.Empty;
         [Required(ErrorMessage = "Nome da instância do Redis é obrigatório.")]
         public string InstanceName { get; set; } = string.Empty;
+        public int ExpirationInSeconds { get; set; } = 0; 
+        public int ExpirationInDays { get; set; } = 0; 
+        public int ExpirationInHours { get; set; } = 0;
 
         public const string RedisSectionName = "RedisSettings";
     }
