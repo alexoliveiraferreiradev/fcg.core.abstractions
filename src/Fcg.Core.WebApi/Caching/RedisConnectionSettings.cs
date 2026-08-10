@@ -6,7 +6,6 @@ namespace Fcg.Core.WebApi.Caching
     {
         [Required(ErrorMessage = "Host do Redis é obrigatório.")]
         public string Host { get; set; } = string.Empty;     
-        [Required(ErrorMessage = "Porta do Redis é obrigatória.")]
         [Range(1, 65535, ErrorMessage = "Porta do Redis deve estar entre 1 e 65535.")]
         public int Port { get; set; } = 6379;
         [Required(ErrorMessage = "Senha do Redis é obrigatória.")]

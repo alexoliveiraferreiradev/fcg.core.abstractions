@@ -6,7 +6,6 @@ namespace Fcg.Core.WebApi.MessageBroker
     {
         [Required(ErrorMessage = "Host do RabbitMQ é obrigatório.")]
         public string Host { get; set; } = string.Empty;
-        [Required(ErrorMessage = "Porta do RabbitMQ é obrigatória.")]
         [Range(1, 65535, ErrorMessage = "Porta do RabbitMQ deve estar entre 1 e 65535.")]
         public ushort Port { get; set; } = 5672;
         [Required(ErrorMessage = "Nome de usuário é obrigatório.")]
