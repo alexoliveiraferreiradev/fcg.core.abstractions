@@ -7,7 +7,7 @@
 
     <IsPackable>true</IsPackable>
     <PackageId>Fcg.Core.WebApi</PackageId>
-    <Version>1.0.8</Version>
+    <Version>1.0.9</Version>
     <Authors>Alex Oliveira Ferreira</Authors>
     <Company>FiapCloudGames</Company>
     <RepositoryUrl>https://github.com/alexoliveiraferreiradev/fcg.core.abstractions</RepositoryUrl>
@@ -21,6 +21,7 @@
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.17" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+	<PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.21" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.17" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.17" />    
   </ItemGroup>
