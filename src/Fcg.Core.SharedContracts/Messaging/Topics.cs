@@ -9,6 +9,7 @@
         public const string GameCreated = "game-created";
         public const string GameDeactivated = "game-deactivated";
         public const string GameReactivated = "game-reactivated";
+        public const string GameRated = "game-rated";
         public const string GameUserLibrary = "game-user-library";
         public const string OrderPlaced = "order-placed";
         public const string PaymentApproved = "payment-approved";
